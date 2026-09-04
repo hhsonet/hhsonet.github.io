@@ -1,52 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My GitHub Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hamudi Hasan Sonet — Senior Programmer at United International University and part-time faculty member in Computer Science & Engineering.">
+  <meta name="theme-color" content="#090d16">
+  <title>Hamudi Hasan Sonet | Senior Programmer & Faculty</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #101827;
+      --surface-soft: #151f31;
+      --text: #f7f9fc;
+      --muted: #a8b3c7;
+      --accent: #f3a847;
+      --accent-soft: rgba(243,168,71,.14);
+      --line: rgba(255,255,255,.09);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(73,107,180,.22), transparent 30rem),
+        radial-gradient(circle at 10% 45%, rgba(243,168,71,.08), transparent 27rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .94rem; }
+    .nav-links a:hover { color: var(--text); }
+    .hero {
+      min-height: 610px;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 72px;
+      padding: 84px 0;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 15px 0 22px;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .lead { max-width: 720px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .mission {
+      display: inline-flex;
+      margin-top: 24px;
+      padding: 11px 15px;
+      border: 1px solid rgba(243,168,71,.27);
+      border-radius: 999px;
+      color: #ffd79f;
+      background: var(--accent-soft);
+      font-weight: 650;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 19px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 720;
+    }
+    .button.primary { color: #201304; background: var(--accent); border-color: var(--accent); }
+    .button.secondary { background: rgba(255,255,255,.035); }
+    .portrait {
+      width: min(100%, 310px);
+      aspect-ratio: 1;
+      justify-self: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 38% 62% 55% 45% / 45% 42% 58% 55%;
+      background: linear-gradient(145deg, var(--accent-soft), rgba(73,107,180,.16));
+      transform: rotate(2deg);
+    }
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      filter: saturate(.9) contrast(1.04);
+    }
+    section { padding: 86px 0; border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; margin-bottom: 36px; }
+    h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.045em; line-height: 1.05; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 680px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      min-height: 170px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+    }
+    .icon { font-size: 1.35rem; }
+    .card h3 { margin: 18px 0 7px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .stack-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      align-items: baseline;
+      padding: 19px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+    .stack-row strong { color: var(--accent); }
+    .stack-row span { color: var(--muted); }
+    .interests { display: flex; flex-wrap: wrap; gap: 10px; }
+    .interests span {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: #dce3ef;
+    }
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 42px;
+      border: 1px solid rgba(243,168,71,.25);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(243,168,71,.11), rgba(73,107,180,.12));
+    }
+    .contact h2 { margin-bottom: 8px; }
+    .contact p { margin: 0; color: var(--muted); }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 30px 0 42px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 64px 0; }
+      .hero-copy { order: 2; }
+      .portrait { order: 1; width: 190px; justify-self: start; }
+      .section-head { grid-template-columns: 1fr; gap: 14px; }
+      .grid, .stack { grid-template-columns: 1fr; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 28px; }
+    }
+    @media (max-width: 480px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      h1 { font-size: 3rem; }
+      .mission { border-radius: 14px; }
+      .stack-row { grid-template-columns: 1fr; gap: 3px; }
+      footer { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+  <header class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#top">sonet<span>.</span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#stack">Stack</a>
+        <a href="#interests">Interests</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
-        <h1>Welcome to My GitHub Page</h1>
-    </header>
+  <main id="top">
+    <div class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">Senior Programmer · Educator · Researcher</div>
+        <h1>Hi, I’m Hamudi Hasan Sonet.</h1>
+        <p class="lead">Senior Programmer at United International University and part-time faculty member in Computer Science &amp; Engineering. I build secure, practical software for universities, research initiatives, and institutional workflows.</p>
+        <div class="mission">🚀 Passionate about simplifying complexity &amp; making learning engaging!</div>
+        <div class="actions">
+          <a class="button primary" href="mailto:hhsonet@gmail.com">Get in touch</a>
+          <a class="button secondary" href="https://github.com/hhsonet" target="_blank" rel="noreferrer">View GitHub</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="https://avatars.githubusercontent.com/u/15366846?v=4" alt="Hamudi Hasan Sonet">
+      </div>
+    </div>
 
-    <main>
-        <h2>Hello, I'm Hamudi Hasan Sonet!</h2>
-        <p>This is my basic GitHub Pages site.</p>
-        <p>Check out my projects and repositories on GitHub!</p>
-    </main>
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What I work on</h2>
+          <p>My work sits at the intersection of software engineering, institutional operations, teaching, and applied research.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="icon">🎓</div><h3>Academic platforms</h3><p>University management systems and tools that support students, faculty, and administrators.</p></article>
+          <article class="card"><div class="icon">🧩</div><h3>Institutional workflows</h3><p>Research grant, internship, application, and reporting systems built around real processes.</p></article>
+          <article class="card"><div class="icon">🤖</div><h3>Applied machine learning</h3><p>Educational data mining, explainable AI, and student-performance prediction.</p></article>
+          <article class="card"><div class="icon">📱</div><h3>Web and mobile</h3><p>Responsive web experiences and practical Android applications.</p></article>
+          <article class="card"><div class="icon">👨‍🏫</div><h3>Programming education</h3><p>Beginner-friendly materials that make computing concepts easier to understand.</p></article>
+          <article class="card"><div class="icon">🛡️</div><h3>Reliable deployment</h3><p>Secure Linux, Apache, and cPanel deployment for production-facing applications.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Hamudi Hasan Sonet</p>
-    </footer>
+    <section id="stack">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Technology stack</h2>
+          <p>A practical toolkit shaped by institutional systems, research applications, and teaching.</p>
+        </div>
+        <div class="stack">
+          <div class="stack-row"><strong>Backend</strong><span>Java, PHP, MySQL</span></div>
+          <div class="stack-row"><strong>Frontend</strong><span>JavaScript, TypeScript, React, Tailwind CSS</span></div>
+          <div class="stack-row"><strong>Mobile</strong><span>Android</span></div>
+          <div class="stack-row"><strong>Research</strong><span>Python, Machine Learning, Explainable AI</span></div>
+          <div class="stack-row"><strong>Infrastructure</strong><span>Linux, Apache, cPanel</span></div>
+          <div class="stack-row"><strong>Workflow</strong><span>Git and GitHub</span></div>
+        </div>
+      </div>
+    </section>
 
+    <section id="interests">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Current interests</h2>
+          <p>Problems I’m currently exploring through software, research, and teaching.</p>
+        </div>
+        <div class="interests">
+          <span>Explainable student-performance prediction</span>
+          <span>Educational data mining</span>
+          <span>Secure institutional software</span>
+          <span>Modernizing legacy university platforms</span>
+          <span>Engaging programming education</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div>
+            <h2>Let’s connect.</h2>
+            <p>Have an idea, research question, or institutional software challenge?</p>
+          </div>
+          <a class="button primary" href="mailto:hhsonet@gmail.com">hhsonet@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© 2026 Hamudi Hasan Sonet</span>
+    <span>☕ Commit. Reflect. Repeat.</span>
+  </footer>
 </body>
 </html>
