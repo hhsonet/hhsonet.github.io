@@ -32,29 +32,20 @@
     }
     a { color: inherit; }
     .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid var(--line);
-      background: rgba(9,13,22,.82);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: 76px;
+      border-bottom: 1px solid var(--line);
     }
     .brand { font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
     .brand span { color: var(--accent); }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: .94rem; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); }
-    .nav-links a.active { box-shadow: inset 0 -2px var(--accent); }
+    .nav-links a:hover { color: var(--text); }
     .hero {
-      min-height: 540px;
+      min-height: 610px;
       display: grid;
       grid-template-columns: 1.25fr .75fr;
       align-items: center;
@@ -71,7 +62,7 @@
     h1 {
       max-width: 760px;
       margin: 15px 0 22px;
-      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-size: clamp(3rem, 7vw, 6rem);
       line-height: .98;
       letter-spacing: -.065em;
     }
@@ -101,34 +92,21 @@
     .button.primary { color: #201304; background: var(--accent); border-color: var(--accent); }
     .button.secondary { background: rgba(255,255,255,.035); }
     .portrait {
-      position: relative;
-      overflow: hidden;
-      width: min(100%, 300px);
+      width: min(100%, 310px);
       aspect-ratio: 1;
       justify-self: center;
       padding: 12px;
       border: 1px solid var(--line);
-      border-radius: 28px;
-      background: linear-gradient(145deg, rgba(243,168,71,.2), rgba(64,136,214,.2));
-    }
-    .portrait-fallback {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      color: rgba(255,255,255,.9);
-      font-size: 3.5rem;
-      font-weight: 850;
-      letter-spacing: -.07em;
+      border-radius: 38% 62% 55% 45% / 45% 42% 58% 55%;
+      background: linear-gradient(145deg, var(--accent-soft), rgba(73,107,180,.16));
+      transform: rotate(2deg);
     }
     .portrait img {
-      position: relative;
-      z-index: 1;
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: inherit;
       filter: saturate(.9) contrast(1.04);
     }
     section { padding: 86px 0; border-top: 1px solid var(--line); }
@@ -143,23 +121,7 @@
       border-radius: 18px;
       background: linear-gradient(150deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
     }
-    .icon {
-      display: inline-grid;
-      place-items: center;
-      min-width: 38px;
-      height: 30px;
-      padding: 0 9px;
-      border: 1px solid rgba(243,168,71,.28);
-      border-radius: 999px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      font-size: .72rem;
-      font-weight: 850;
-      letter-spacing: .08em;
-    }
-    .card-meta { margin-top: 18px; color: var(--accent); font-size: .78rem; font-weight: 750; text-transform: uppercase; letter-spacing: .08em; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-    .card-tags span { padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .76rem; }
+    .icon { font-size: 1.35rem; }
     .card h3 { margin: 18px 0 7px; font-size: 1.05rem; }
     .card p { margin: 0; color: var(--muted); font-size: .94rem; }
     .stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -218,19 +180,12 @@
     .publication p { margin: 0; color: var(--muted); font-size: .9rem; }
     .text-link { color: #ffd79f; font-weight: 700; text-decoration: none; white-space: nowrap; }
     .text-link:hover { text-decoration: underline; }
-    .social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-    .social-links a { color: var(--muted); text-decoration: none; font-weight: 700; }
-    .social-links a:hover { color: var(--text); }
-    .card, .publication, .stack-row { transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
-    .card:hover, .publication:hover, .stack-row:hover { transform: translateY(-3px); border-color: rgba(243,168,71,.28); }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
     .stat { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
     .stat strong { display: block; color: var(--accent); font-size: 1.45rem; }
     .stat span { color: var(--muted); }
     @media (max-width: 800px) {
-      nav { gap: 18px; }
-      .nav-links { gap: 18px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
-      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; gap: 48px; padding: 64px 0; }
       .hero-copy { order: 2; }
       .portrait { order: 1; width: 190px; justify-self: start; }
@@ -238,10 +193,6 @@
       .grid, .stack, .stats { grid-template-columns: 1fr; }
       .publication { grid-template-columns: 1fr; gap: 6px; }
       .contact { align-items: flex-start; flex-direction: column; padding: 28px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
     }
     @media (max-width: 480px) {
       .wrap { width: min(calc(100% - 28px), var(--max)); }
@@ -253,13 +204,14 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="wrap" aria-label="Main navigation">
+  <header class="wrap">
+    <nav aria-label="Main navigation">
       <a class="brand" href="#top">HHS<span>.</span></a>
       <div class="nav-links">
+        <a href="#about">About</a>
         <a href="#experience">Experience</a>
-        <a href="#work">Work</a>
         <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -279,10 +231,35 @@
         </div>
       </div>
       <div class="portrait">
-        <span class="portrait-fallback" aria-hidden="true">HHS</span>
-        <img src="https://avatars.githubusercontent.com/u/15366846?v=4" alt="Hamudi Hasan Sonet" onerror="this.style.display='none'">
+        <img src="https://avatars.githubusercontent.com/u/15366846?v=4" alt="Hamudi Hasan Sonet">
       </div>
     </div>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About me</h2>
+          <p>I work where technology, education, and institutional problem-solving meet—building dependable systems while helping students turn computing concepts into practical skills.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="icon">💻</div>
+            <h3>Technology at UIU</h3>
+            <p>As a Senior Programmer at CITS, I contribute to software and technology services that support the university community.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🎓</div>
+            <h3>Teaching</h3>
+            <p>As a part-time faculty member, I teach and support students across Computer Science &amp; Engineering and Environment &amp; Development Studies.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔗</div>
+            <h3>Professional profiles</h3>
+            <p><a href="https://www.uiu.ac.bd/people/sonet/" target="_blank" rel="noreferrer">Official UIU profile</a> · <a href="https://www.linkedin.com/in/hhsonet/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <section id="experience">
       <div class="wrap">
@@ -326,12 +303,12 @@
           <p>Representative areas of work presented without exposing private systems, repositories, or institutional data.</p>
         </div>
         <div class="grid">
-          <article class="card"><div class="icon">AP</div><div class="card-meta">Higher education</div><h3>Academic platforms</h3><p>Designed digital services that help students, faculty members, and administrators complete essential academic workflows more clearly and efficiently.</p><div class="card-tags"><span>Systems design</span><span>Automation</span></div></article>
-          <article class="card"><div class="icon">RG</div><div class="card-meta">Institutional workflow</div><h3>Research grant systems</h3><p>Translated complex application, screening, review, and reporting requirements into secure, structured online processes.</p><div class="card-tags"><span>PHP</span><span>MySQL</span><span>Reporting</span></div></article>
-          <article class="card"><div class="icon">IP</div><div class="card-meta">Student services</div><h3>Internship portals</h3><p>Built eligibility, submission-round, review, and administration workflows around real university processes and privacy requirements.</p><div class="card-tags"><span>CodeIgniter</span><span>UX</span><span>Security</span></div></article>
-          <article class="card"><div class="icon">IR</div><div class="card-meta">Decision support</div><h3>Institutional reporting</h3><p>Turned operational data into focused reports and dependable tools for faster administrative decision-making.</p><div class="card-tags"><span>Data</span><span>Exports</span></div></article>
-          <article class="card"><div class="icon">AT</div><div class="card-meta">Accessible technology</div><h3>Assistive mobile applications</h3><p>Contributed to Android research solutions supporting communication, accessibility, and disaster response.</p><div class="card-tags"><span>Android</span><span>Research</span></div></article>
-          <article class="card"><div class="icon">SD</div><div class="card-meta">Production engineering</div><h3>Secure deployment</h3><p>Prepared applications for reliable Linux, Apache, and cPanel deployment with careful handling of private data and server exposure.</p><div class="card-tags"><span>Linux</span><span>Apache</span><span>cPanel</span></div></article>
+          <article class="card"><div class="icon">🎓</div><h3>Academic platforms</h3><p>Digital services that support students, faculty members, administrators, and university operations.</p></article>
+          <article class="card"><div class="icon">🧩</div><h3>Research grant systems</h3><p>Structured application, screening, review, reporting, and institutional workflow solutions.</p></article>
+          <article class="card"><div class="icon">🧭</div><h3>Internship portals</h3><p>Eligibility, application, submission-round, review, and administrative management workflows.</p></article>
+          <article class="card"><div class="icon">📊</div><h3>Institutional reporting</h3><p>Reliable reporting and automation tools that turn operational data into usable information.</p></article>
+          <article class="card"><div class="icon">📱</div><h3>Assistive mobile technology</h3><p>Android-based solutions designed around communication, accessibility, and real-world needs.</p></article>
+          <article class="card"><div class="icon">🛡️</div><h3>Secure deployment</h3><p>Production-focused Linux, Apache, and cPanel deployment with attention to privacy and reliability.</p></article>
         </div>
       </div>
     </section>
@@ -363,32 +340,23 @@
           <article class="publication">
             <div class="year">2019</div>
             <div><h3>An Adaptive Video-based Vehicle Detection, Classification, Counting, and Speed-measurement System</h3><p>Computer vision · Java · OpenCV · Intelligent transportation</p></div>
-            <a class="text-link" href="https://doi.org/10.1109/TENSYMP46218.2019.8971196" target="_blank" rel="noreferrer">View paper ↗</a>
+            <a class="text-link" href="https://scholar.google.com/citations?hl=en&amp;user=dlALSwUAAAAJ" target="_blank" rel="noreferrer">Scholar ↗</a>
           </article>
           <article class="publication">
             <div class="year">2017</div>
             <div><h3>EarthquakeAssist: Leveraging Mobile Technology to Aid Earthquake Victims and Rescue Teams</h3><p>Mobile systems · Crowdsourcing · Disaster response</p></div>
-            <a class="text-link" href="https://www.researchgate.net/publication/320354157_EarthquakeAssist_Leveraging_Mobile_Technology_to_Aid_Earthquake_Victims_and_Rescue_Teams" target="_blank" rel="noreferrer">View paper ↗</a>
+            <a class="text-link" href="https://scholar.google.com/citations?hl=en&amp;user=dlALSwUAAAAJ" target="_blank" rel="noreferrer">Scholar ↗</a>
           </article>
           <article class="publication">
             <div class="year">2017</div>
             <div><h3>“Bolte Chai” — An Android Application for Verbally Challenged Children</h3><p>Assistive technology · Android · Accessible communication</p></div>
-            <a class="text-link" href="https://doi.org/10.1109/ICAEE.2017.8255415" target="_blank" rel="noreferrer">View paper ↗</a>
+            <a class="text-link" href="https://scholar.google.com/citations?hl=en&amp;user=dlALSwUAAAAJ" target="_blank" rel="noreferrer">Scholar ↗</a>
           </article>
         </div>
         <div class="stats">
           <div class="stat"><strong>3</strong><span>Indexed research works</span></div>
-          <div class="stat"><strong>2018 winner</strong><span>National Innov-A-thon recognition</span></div>
           <div class="stat"><strong>AI + Education</strong><span>Current research direction</span></div>
-        </div>
-        <div class="actions">
-          <a class="button secondary" href="https://scholar.google.com/citations?hl=en&amp;user=dlALSwUAAAAJ" target="_blank" rel="noreferrer">View all on Google Scholar</a>
-        </div>
-        <div class="interests" aria-label="Current research interests">
-          <span>Explainable student-performance prediction</span>
-          <span>Educational data mining</span>
-          <span>Secure institutional software</span>
-          <span>Modernizing university platforms</span>
+          <div class="stat"><strong>Applied</strong><span>Research built around real problems</span></div>
         </div>
       </div>
     </section>
@@ -400,9 +368,39 @@
           <p>I focus on simplifying technical concepts and helping students turn foundational knowledge into practical problem-solving skills.</p>
         </div>
         <div class="grid">
-          <article class="card"><div class="icon">PF</div><h3>Programming foundations</h3><p>Clear, beginner-friendly instruction in programming fundamentals and structured problem-solving.</p></article>
-          <article class="card"><div class="icon">SM</div><h3>Student mentorship</h3><p>Guidance for student software, robotics, innovation, and research initiatives.</p></article>
-          <article class="card"><div class="icon">LP</div><h3>Learning through practice</h3><p>Hands-on exercises, coding challenges, and project-based activities that build confidence.</p></article>
+          <article class="card"><div class="icon">💡</div><h3>Programming foundations</h3><p>Clear, beginner-friendly instruction in programming fundamentals and structured problem-solving.</p></article>
+          <article class="card"><div class="icon">🤝</div><h3>Student mentorship</h3><p>Guidance for student software, robotics, innovation, and research initiatives.</p></article>
+          <article class="card"><div class="icon">🏁</div><h3>Learning through practice</h3><p>Hands-on exercises, coding challenges, and project-based activities that build confidence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Current interests</h2>
+          <p>Problems I’m currently exploring through software, research, and teaching.</p>
+        </div>
+        <div class="interests">
+          <span>Explainable student-performance prediction</span>
+          <span>Educational data mining</span>
+          <span>Secure institutional software</span>
+          <span>Modernizing legacy university platforms</span>
+          <span>Engaging programming education</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="recognition">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Recognition</h2>
+          <p>Research and innovation grounded in practical public-interest applications.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="icon">🏆</div><h3>National Innov-A-thon 2018</h3><p>The vehicle detection and traffic-data project was recognized as a winning initiative at the national innovation event.</p></article>
+          <article class="card"><div class="icon">🔬</div><h3>Published research</h3><p>Peer-reviewed work across intelligent transportation, assistive technology, and mobile disaster response.</p></article>
+          <article class="card"><div class="icon">🌱</div><h3>Academic impact</h3><p>Combining institutional technology work with teaching, research, and student mentorship.</p></article>
         </div>
       </div>
     </section>
@@ -414,14 +412,12 @@
             <h2>Let’s connect.</h2>
             <p>Have an idea, research question, or institutional software challenge?</p>
           </div>
-          <div>
+          <div class="actions">
             <a class="button primary" href="mailto:hhsonet@gmail.com">Email me</a>
-            <div class="social-links">
-              <a href="https://github.com/hhsonet" target="_blank" rel="noreferrer">GitHub ↗</a>
-              <a href="https://www.linkedin.com/in/hhsonet/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-              <a href="https://www.uiu.ac.bd/people/sonet/" target="_blank" rel="noreferrer">UIU profile ↗</a>
-              <a href="https://scholar.google.com/citations?hl=en&amp;user=dlALSwUAAAAJ" target="_blank" rel="noreferrer">Scholar ↗</a>
-            </div>
+            <a class="button secondary" href="https://github.com/hhsonet" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/hhsonet/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button secondary" href="https://www.uiu.ac.bd/people/sonet/" target="_blank" rel="noreferrer">UIU profile</a>
+            <a class="button secondary" href="https://scholar.google.com/citations?hl=en&amp;user=dlALSwUAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
           </div>
         </div>
       </div>
@@ -432,15 +428,5 @@
     <span>© 2026 Hamudi Hasan Sonet</span>
     <span>☕ Commit. Reflect. Repeat.</span>
   </footer>
-  <script>
-    const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-    const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-    const observer = new IntersectionObserver(entries => {
-      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id));
-    }, { rootMargin: '-25% 0px -60%', threshold: [0, .2, .5] });
-    sections.forEach(section => observer.observe(section));
-  </script>
 </body>
 </html>
