@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hamudi Hasan Sonet logo</title>
+  <desc id="desc">A connected double-H monogram with a green flowing crossbar above the word Sonet.</desc>
+  <g fill="#0b0d10">
+    <path d="M105 120H205V620H105V180L165 120Z"/>
+    <rect x="310" y="120" width="100" height="500"/>
+    <path d="M515 120H615V560L555 620H515Z"/>
+  </g>
+  <path d="M105 370H245C278 370 294 363 310 350L310 410C333 397 355 380 382 365C407 351 430 345 468 345H615V415H468C438 415 420 420 398 432C369 449 342 469 310 480V420C287 434 267 440 237 440H105Z" fill="#00d865"/>
+  <text x="360" y="755" text-anchor="middle" fill="#0b0d10" font-family="Inter,Arial,sans-serif" font-size="66" font-weight="700" letter-spacing="30">SONET</text>
+</svg>
